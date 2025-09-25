@@ -2,5 +2,6 @@ This repository contains 3 automated test cases created with Python and Selenium
 
 1. Keyword Search by Question ID
 2. Reset Search Filters
-3. Date Range Filter (known issue on the page) + Bug Report(PDF)
-4. Manual Test cases (PDF)
+3. Date Range Filter (known issue on the page) + Bug Report(PDF) + Screenshot
+
+And Manual Test cases (PDF)

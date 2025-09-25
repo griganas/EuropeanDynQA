@@ -21,9 +21,8 @@ try:
     print("Cookies accepted")
 except:
     print("No cookie banner appeared")
+
 driver.find_element(By.ID, "edit-qa-question-id").send_keys(Id)
-
-
 
 driver.execute_script("window.scrollBy(0,1500)")
 time.sleep(5)

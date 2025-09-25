@@ -31,7 +31,7 @@ publicationE = driver.find_element(By.ID, "edit-qa-final-publishing-date-end").s
 keywords = driver.find_element(By.ID, "edit-keywords").send_keys("LGD")
 
 driver.execute_script("window.scrollBy(0,1500)")
-time.sleep(10)
+time.sleep(2)
 
 driver.find_element(By.XPATH, "//button[@id='edit-submit-question-answers']").click()
 time.sleep(2)

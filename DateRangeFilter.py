@@ -18,6 +18,7 @@ try:
 except:
     print("No cookie banner appeared")
 
+driver.execute_script("window.scrollBy(0,1500)")
 
 start_date = driver.find_element(By.ID, "edit-qa-final-publishing-date-start")
 end_date = driver.find_element(By.ID, "edit-qa-final-publishing-date-end")
@@ -31,20 +32,24 @@ val_end = end_date.get_property("value")
 
 expected_start = "2025-01-01"
 expected_end = "2025-01-31"
+time.sleep(2)
+try:
+    assert val_start == expected_start, f"Start date mismatch, expected {expected_start}, got {val_start}"
+    assert val_end == expected_end, f"End date mismatch, expected {expected_end}, got {val_end}"
+except AssertionError as e:
+    driver.save_screenshot("error.png")
+    print(f"Assertion failed: {e}. Screenshot saved.")
+    raise
 
-assert val_start == expected_start, f"Start date mismatch, expected {expected_start}, got {val_start}"
-assert val_end == expected_end, f"End date mismatch, expected {expected_end}, got {val_end}"
 
 print("Date fields stored correctly in ISO format")
 
 
-driver.execute_script("window.scrollBy(0,1500)")
-time.sleep(2)
 driver.find_element(By.ID, "edit-submit-question-answers").click()
-time.sleep(3)
 
 
 results = driver.find_elements(By.CSS_SELECTOR, ".teaser-qa__footer")
 assert len(results) > 0, "No results returned for this date range"
 print(f"Found {len(results)} results in the specified date range")
+
 
